@@ -24,9 +24,6 @@ func main() {
     userControll := controller.UserControllers(UerServiceController)
     postRoute := routes.NewPostRoute(postController,userControll, router) // post routes are initialized
     postRoute.Setup() // post routes are being setup
-router.GET("/", func(c *gin.Context) {
-    c.JSON(http.StatusOK, gin.H{"data": "hello world"})    
-  })
     db.DB.AutoMigrate(&models.Post{},&models.Users{}) // migrating Post model to datbase table
     router.Gin.Run(":8005") //server started on 8000 port
 }
