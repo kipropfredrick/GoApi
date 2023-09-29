@@ -1,4 +1,4 @@
-FROM golang:alpine fred
+FROM golang:alpine
 # testing docker pipelines
 RUN mkdir /app
 
