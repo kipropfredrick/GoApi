@@ -34,7 +34,7 @@ func NewUserRepository(db DTBX) models.Repository {
 }
 
 //function to create user
-func (repo *repository) CreateUser(ctx context.Context, hashed_code string, user *models.User) (*models.User, error) {
+func (repo *repository) CreateUser(ctx context.Context, hashedCode string, user *models.User) (*models.User, error) {
 	var lastinsertid int
 	// repo.db.QueryContext(ctx, "UPDATE users set id_number=$2,password=$3,plate_numer=$4,license_number=$5 WHERE phone = $1",user.Phone,user.ID_NO,user.Password,user.PlateNumber,user.LicenseNumber)
 
@@ -52,7 +52,7 @@ func (repo *repository) CreateUser(ctx context.Context, hashed_code string, user
 		return &models.User{}, err
 	}
 	validate := "INSERT INTO account_validation (hashed_code,user_id) VALUES ($1,$2) returning id"
-	valid := repo.db.QueryRowContext(ctx, validate, hashed_code, lastinsertid).Scan(&lastinsertids)
+	valid := repo.db.QueryRowContext(ctx, validate, hashedCode, lastinsertid).Scan(&lastinsertids)
 	if valid != nil {
 		return &models.User{}, err
 	}
