@@ -6,7 +6,6 @@ import (
 	"server/db"
 	"server/internal/repository"
 	"server/internal/servicesa"
-	"server/internal/testin"
 	"server/internal/users"
 	"server/router"
 )
@@ -19,13 +18,10 @@ func main() {
 	}
 	// Create
 	userRepo := repository.NewUserRepository(dbConn.GetDB())
-	testRepo := testin.NewTestrepo(dbConn.GetDB())
 	userService := servicesa.NewUserService(userRepo)
-	testService := testin.NewTestservice(testRepo)
 
-	testHnadl := testin.NewTestHanlder(testService)
-	userHandler := users.NewHandler(userService, testService)
-	userPost := router.NewUserRoute(*userHandler, *testHnadl, routers)
+	userHandler := users.NewHandler(userService)
+	userPost := router.NewUserRoute(*userHandler, routers)
 	userPost.Setup()
 	// initialize the router and
 	// router.InitRouter(userHandler)
