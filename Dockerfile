@@ -6,7 +6,7 @@ WORKDIR /app
 
 # Copy the source code
 COPY . .
-
+COPY .env .
 # Download and install the dependencies
 #RUN go get -d -v ./...
 
