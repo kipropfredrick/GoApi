@@ -1,12 +1,18 @@
-FROM golang
+# use official Golang image
+FROM golang:alpine
 
-RUN mkdir /app
-
-ADD . /app
-
+# set working directory
 WORKDIR /app
 
-RUN go build -o main ./main.go
+# Copy the source code
+COPY . .
 
-EXPOSE 8090
-CMD [ "/app/main" ]
+# Download and install the dependencies
+RUN go get -d -v ./...
+
+# Build the Go app
+RUN go build -o api .
+
+#EXPOSE the port
+# Run the executable
+CMD ["./api"]
