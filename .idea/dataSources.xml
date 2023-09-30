@@ -8,5 +8,12 @@
       <jdbc-url>jdbc:postgresql://localhost:5432/go-chat</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
+    <data-source source="LOCAL" name="awsinstance" uuid="77aea05e-0b38-43a1-b507-ebf71845c79f">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://kiprop.cs7pago4pgpd.us-west-2.rds.amazonaws.com:5432/gochat</jdbc-url>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
   </component>
 </project>
