@@ -98,7 +98,7 @@ func (user *repository) GetByEmail(ctx context.Context, email string) (*models.U
 
 	return &u, nil
 }
-func (user *repository) Check_exist_email(ctx context.Context, email string) (*models.User, error) {
+func (user *repository) CheckExistEmail(ctx context.Context, email string) (*models.User, error) {
 	//empty struct
 	t := models.User{}
 	queryx := "SELECT id,email FROM users WHERE email = $1"
