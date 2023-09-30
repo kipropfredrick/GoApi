@@ -27,7 +27,7 @@ func NewDatabase() (*Database, error) {
 	// DbPassword := os.Getenv("POSTGRES_PASSWORD")
 	// DbName := os.Getenv("POSTGRES_DB")
 	// DbPort := os.Getenv("DB_PORT")
-	db, err := sql.Open("postgres", "postgresql://kiprop:31877101@kiprop.cs7pago4pgpd.us-west-2.rds.amazonaws.com:5432/gochat?sslmode=disable")
+	db, err := sql.Open("postgres", "postgresql://postgres:31877101@localhost:5432/go-chat?sslmode=disable")
 	if err != nil {
 		return nil, err
 	}
