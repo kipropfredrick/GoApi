@@ -8,7 +8,7 @@ WORKDIR /app
 COPY . .
 COPY .env .
 # Download and install the dependencies
-#RUN go get -d -v ./...
+#RUN go get -d -v ./...c
 
 # Build the Go app
 RUN go build -o api .
